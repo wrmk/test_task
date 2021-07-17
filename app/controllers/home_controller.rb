@@ -3,8 +3,7 @@ class HomeController < ApplicationController
   def index
     if current_user
       @name = current_user.userinfo.name
-      User.sex(current_user)
-      @sex = current_user.userinfo.sex
+      @sex = User.gender(current_user)
     end
   end
 

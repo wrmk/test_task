@@ -7,10 +7,14 @@ class User < ApplicationRecord
   has_one :userinfo
   accepts_nested_attributes_for :userinfo, allow_destroy: true
 
-  def self.sex(current_user)
+  require_relative "dadata_service"
 
-    current_user.userinfo.update(:sex =>'male')
+  def self.gender(current_user)
 
-    # current_user.sex = "male"
+    return gender = Dadata.gender(current_user)
+    # current_user.userinfo.update(:sex =>'male')
+
+
+  
   end       
 end
