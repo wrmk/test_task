@@ -3,11 +3,24 @@ class HomeController < ApplicationController
   def index
     if current_user
       @name = current_user.userinfo.name
-      @sex = User.gender(current_user)
+      @email = current_user.email
+      @sex = User.get_gender(current_user)
+       
     end
   end
 
-  def create
-    
+  def update
+    @sex= gender_params[:sex]
+    respond_to do |format|
+      # format.html {render "index"}
+      format.js
+    end
   end
+
+
+  private
+
+  def gender_params
+      params.permit(:sex)
+  end 
 end
