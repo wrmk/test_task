@@ -11,7 +11,7 @@
   <div class="field">
     <%=f.fields_for :userinfo, Userinfo.new  do |t|%>
       <%= t.label :name %><br />
-      <%= t.text_field :name, autofocus: true, autocomplete: "name",placeholder:"Петров П.П." %>
+      <%= t.text_field :name, autofocus: true, autocomplete: "name",placeholder:"Петров Петр Петрович" %>
     <%end%>
   </div>  
 

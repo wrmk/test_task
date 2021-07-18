@@ -21,12 +21,13 @@ class HomeController < ApplicationController
 
 
   def update
-    @sex= gender_params[:sex]
+    # @sex= gender_params[:sex]
     current_user.userinfo.update gender_params
-    respond_to do |format|
-      format.html {render "index"}
-      format.js
-    end
+      @sex = current_user.userinfo.sex
+      respond_to do |format|
+        format.html {render "index"}
+        format.js
+      end
   end
 
 
