@@ -1,0 +1,11 @@
+<div id="test">
+  <%= form_with url: "/",local: false do |u|%>
+    <div class="input-group">  
+      <span class="input-group-text" id="basic-addon1">пол</span>
+       <div class="w-25">
+          <%= u.text_field :sex,class:"form-control",value: @sex %>
+        </div>
+        <%= u.submit 'Подтвердить',class:"btn btn-outline-secondary"%>
+    </div>
+  <%end%>
+</div>

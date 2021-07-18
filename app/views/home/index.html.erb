@@ -1,16 +1,5 @@
 <p class="fs-2">ФИО: <%=@name%></p>
 <p class="fs-2">email: <%=@email%></p>
 
-
-
-<div id="test">
-<%= form_with url: "/",local: false do |u|%>
-  <div class="input-group">  
-    <span class="input-group-text" id="basic-addon1">пол</span>
-     <div class="w-25">
-        <%= u.text_field :sex,class:"form-control" %>
-      </div>
-      <%= u.submit 'Подтвердить',class:"btn btn-outline-secondary"%>
-  </div>
-<%end%>
-</div>
+<%= render 'home/gender' if @confirmed %>
+<%= render 'home/confirm' if !@confirmed %>
