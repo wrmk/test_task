@@ -5,6 +5,7 @@ class HomeController < ApplicationController
 
 
   def index
+    @gender_hash = {"М" => "Мужской", "Ж" => "Женский"}
     if current_user
       @name = current_user.userinfo.name
       @email = current_user.email
@@ -13,7 +14,7 @@ class HomeController < ApplicationController
         @confirmed = true
       else
         # @sex = Dadata.gender(current_user)
-        @sex = 'test'
+        @sex = @gender_hash["М"]
         @confirmed = false
       end 
     end
@@ -21,13 +22,12 @@ class HomeController < ApplicationController
 
 
   def update
-    # @sex= gender_params[:sex]
     current_user.userinfo.update gender_params
-      @sex = current_user.userinfo.sex
-      respond_to do |format|
-        format.html {render "index"}
-        format.js
-      end
+    @sex = current_user.userinfo.sex
+    respond_to do |format|
+      format.html {render "index"}
+      format.js
+    end
   end
 
 
