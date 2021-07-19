@@ -3,8 +3,6 @@ class HomeController < ApplicationController
 
   require_relative "../models/dadata"
 
-  
-
   def index
     gender_hash
     @name = current_user.userinfo.name
@@ -18,7 +16,6 @@ class HomeController < ApplicationController
       @confirmed = false
     end 
   end
-
 
   def update
     gender_hash
@@ -36,8 +33,8 @@ class HomeController < ApplicationController
   def gender_hash
     @gender_hash = {"М" => "Мужской", "Ж" => "Женский"}
   end
-
   def gender_params
-      params.permit(:sex)
+    params.permit(:sex)
   end 
+  
 end
