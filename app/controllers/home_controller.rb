@@ -8,13 +8,13 @@ class HomeController < ApplicationController
     @name = current_user.userinfo.name
     @email = current_user.email
     
-    if current_user.userinfo.sex != nil
-      @sex = current_user.userinfo.sex
+    if current_user.userinfo.gender != nil
+      @gender = current_user.userinfo.gender
       @confirmed = true
     else
-      # @sex = Dadata.gender(current_user.userinfo.name)
-      @sex = "Ж"
-      current_user.userinfo.update(:sex_updated => DateTime.now)
+      # @gender = Dadata.gender(current_user.userinfo.name)
+      @gender = "Ж"
+      current_user.userinfo.update(:gender_updated => DateTime.now)
       @confirmed = false
     end 
   end
@@ -22,7 +22,7 @@ class HomeController < ApplicationController
   def update
     userinfo
     current_user.userinfo.update gender_params
-    @sex = current_user.userinfo.sex
+    @gender = current_user.userinfo.gender
     respond_to do |format|
       format.html {render "index"}
       format.js
@@ -34,10 +34,10 @@ class HomeController < ApplicationController
 
   def userinfo
     @gender_hash = {"М" => "Мужской", "Ж" => "Женский"}
-    @update_date = current_user.userinfo.sex_updated
+    @update_date = current_user.userinfo.gender_updated
   end
   def gender_params
-    params.permit(:sex)
+    params.permit(:gender)
   end 
   
 end

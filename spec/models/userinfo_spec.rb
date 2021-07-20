@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Userinfo, type: :model do
 
   before do
-    @userinfo = Userinfo.new(name: "Петров Илья",sex: "Ж")
+    @userinfo = Userinfo.new(name: "Петров Илья",gender: "Ж")
   end
 
   it "Save name only in 'а-Я' chars" do
@@ -13,9 +13,9 @@ RSpec.describe Userinfo, type: :model do
   end
 
   it "Save correct genders" do
-    @userinfo.sex = "9/* Виталий"
+    @userinfo.gender = "9/* Виталий"
     @userinfo.validate
-    expect(@userinfo.errors[:sex]).to include("please input correct gender 'М/Ж'")
+    expect(@userinfo.errors[:gender]).to include("please input correct gender 'М/Ж'")
   end  
 
 

@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2021_07_17_090612) do
 
   create_table "userinfos", force: :cascade do |t|
     t.string "name"
-    t.string "sex"
-    t.date "sex_updated"
+    t.string "gender"
+    t.date "gender_updated"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
