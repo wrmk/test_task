@@ -11,7 +11,7 @@ class HomeController < ApplicationController
       @sex = current_user.userinfo.sex
       @confirmed = true
     else
-      # @sex = Dadata.gender(current_user)
+      # @sex = Dadata.gender(current_user.userinfo.name)
       @sex = "Ж"
       @confirmed = false
     end 
@@ -20,7 +20,7 @@ class HomeController < ApplicationController
   def update
     gender_hash
     current_user.userinfo.update gender_params
-    @sex = gender_params[:sex]
+    @sex = current_user.userinfo.sex
     respond_to do |format|
       format.html {render "index"}
       format.js
