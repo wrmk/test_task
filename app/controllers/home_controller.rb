@@ -12,8 +12,7 @@ class HomeController < ApplicationController
       @gender = current_user.userinfo.gender
       @confirmed = true
     else
-      # @gender = Dadata.gender(current_user.userinfo.name)
-      @gender = "Ж"
+      @gender = Dadata.gender(current_user.userinfo.name)
       current_user.userinfo.update(:gender_updated => DateTime.now)
       @confirmed = false
     end 
