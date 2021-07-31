@@ -1,7 +1,7 @@
-class HomeController < ApplicationController
+class UserController < ApplicationController
   before_action :authenticate_user!
 
-  require_relative "../models/dadata"
+  require_relative "../services/dadata"
 
   def index
     userinfo

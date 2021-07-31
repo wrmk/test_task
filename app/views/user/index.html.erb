@@ -1,0 +1,5 @@
+<p class="fs-2">ФИО: <%=@name%></p>
+<p class="fs-2">email: <%=@email%></p>
+
+<%= render 'user/gender' if @confirmed %>
+<%= render 'user/confirm' if !@confirmed %>

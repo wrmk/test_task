@@ -14,7 +14,8 @@ module Dadata
       :body => query,
       :headers => headers 
     )
-
-    return gender = response[0]["gender"]
+    if response.code == 200
+      return gender = response[0]["gender"]
+    end
   end 
 end   
