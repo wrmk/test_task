@@ -5,8 +5,8 @@ module Dadata
 
     headers = {
       "Content-Type" => "application/json",
-      "Authorization" => "Token 49e590d74",
-      "X-secret" => "a1b2c3d4"
+      "Authorization" => "Token #{Rails.application.credentials.dadata_api_key}",
+      "X-secret" => Rails.application.credentials.dadata_secret_key
     }
     
     response = HTTParty.post(
@@ -18,4 +18,4 @@ module Dadata
       return gender = response[0]["gender"]
     end
   end 
-end   
+end
